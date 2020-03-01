@@ -3,7 +3,6 @@ package main
 import (
 	"fmt"
 	"os"
-	"runtime"
 	"syscall"
 	"unsafe"
 )
@@ -19,11 +18,6 @@ func swaptoggle(path string, on bool) syscall.Errno {
 }
 
 func main() {
-	if runtime.GOOS != "linux" {
-		fmt.Println("This isn't Linux")
-		return
-	}
-
 	if len(os.Args) < 2 {
 		fmt.Println("You need to provide the path to your swap partition/file(s)!")
 		return
